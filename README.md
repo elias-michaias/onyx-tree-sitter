@@ -63,7 +63,7 @@ tree-sitter test
 
 ### Contributing
 
-Contributions are welcome! Please submit a pull request or open an issue for any bugs or feature requests.
+Contributions are welcome. Please submit a pull request or open an issue for any bugs or feature requests.
 
 ## License
 
