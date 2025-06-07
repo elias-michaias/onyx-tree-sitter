@@ -1,0 +1,131 @@
+// This is a test file for the Onyx programming language tree-sitter grammar
+
+use core {
+    printf
+}
+
+higher_order_example :: (fn: #type (i32) -> i32) -> i32 {
+    return fn(10)
+}
+
+// Simple function declaration
+main :: () {
+    printf("Hello, World!\n")
+
+    // Run tests
+    test_control_flow()
+    create_array()
+    pointer_example()
+    access_fields()
+    populate_doubled()
+    #unquote say_hello
+}
+
+// Function with parameters and return type
+add :: (a: i32, b: i32) -> i32 {
+    return a + b
+}
+
+// Variable declarations
+x: i32 = 42
+y := 100
+name: str = "Onyx"
+
+// Struct declaration
+Person :: struct {
+    name: str
+    age: i32
+    email: str
+
+    get_age :: (self: Person) -> i32 {
+        return self.age
+    }
+}
+
+// Polymorphic struct example
+Box :: struct(T: type_expr) {
+    value: T
+}
+
+box := Box(i32).{ value = 42 }
+
+// Enum declaration
+Color :: enum {
+    Red :: 0;
+    Green :: 1;
+    Blue :: 2;
+}
+
+generic_func :: (value: $T) -> T {
+     return value
+}
+
+
+populate_doubled :: () {
+    numbers := .[3, 5, 3, 8, 7]
+    doubled: [..]i32
+    for n, i in numbers {
+        printf("Doubling number {} at index {}\n", n, i)
+        doubled->push(n * 2)
+    }
+    printf("Doubled numbers: {}\n", doubled)
+}
+
+// Macro example
+square_x :: macro () -> i32 {
+     return x * x
+}
+
+// Code block
+say_hello :: [] {
+    printf("Hello, world!\n")
+}
+
+
+// Control flow
+test_control_flow :: () {
+    x := 2
+    y := 10
+    // If expression
+    if x > 0 {
+        printf("Positive\n")
+    } elseif x < 0 {
+        printf("Negative\n")
+    } else {
+        printf("Zero\n")
+    }
+
+    // For loop
+    for i in 0..10 {
+        printf("{}\n", i)
+    }
+
+    // While loop
+    while y > 0 {
+        y = y - 1
+    }
+}
+
+// Struct literal
+person := Person.{ name = "Alice", age = 30, email = "alice@example.com" }
+
+// Array operations
+create_array :: () -> []i32 {
+    arr: [5] i32 = .[1, 2, 3, 4, 5]
+    slice := arr[1..3]
+    return slice
+}
+
+// Pointer operations
+pointer_example :: () {
+    value := 42
+    ptr := &value
+    dereferenced := *ptr
+}
+
+// Field access
+access_fields :: () {
+    p := person
+    name := p.name
+    age := p->get_age()
+}
