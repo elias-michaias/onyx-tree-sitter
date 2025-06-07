@@ -4,7 +4,7 @@ A Tree-sitter grammar for the Onyx programming language.
 
 ## Introduction
 
-This project provides a Tree-sitter grammar for the Onyx programming language, enabling syntax parsing and highlighting for Onyx code. Tree-sitter is a powerful parsing library used for building fast and accurate parsers for programming languages.
+This project provides a Tree-sitter grammar for the Onyx programming language, enabling syntax parsing and highlighting for Onyx code. [Tree-sitter](https://github.com/tree-sitter/tree-sitter) is a powerful parsing library used for building fast and accurate parsers for programming languages.
 
 ## Features
 
